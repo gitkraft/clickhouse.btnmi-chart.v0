@@ -229,6 +229,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `service.extraPorts`                              | Extra ports to expose in ClickHouse service (normally used with the `sidecars` value)                                            | `[]`                     |
 | `service.sessionAffinity`                         | Control where client requests go, to the same pod or round-robin                                                                 | `None`                   |
 | `service.sessionAffinityConfig`                   | Additional settings for the sessionAffinity                                                                                      | `{}`                     |
+| `service.headless.annotations`                    | Annotations for the headless service.                                                                                            | `{}`                     |
 | `externalAccess.enabled`                          | Enable Kubernetes external cluster access to ClickHouse                                                                          | `false`                  |
 | `externalAccess.service.type`                     | Kubernetes Service type for external access. It can be NodePort, LoadBalancer or ClusterIP                                       | `LoadBalancer`           |
 | `externalAccess.service.ports.http`               | ClickHouse service HTTP port                                                                                                     | `80`                     |
@@ -338,6 +339,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `zookeeper.replicaCount`         | Number of Zookeeper instances | `3`    |
 | `zookeeper.service.ports.client` | Zookeeper client port         | `2181` |
 
+See <https://github.com/bitnami-labs/readme-generator-for-helm> to create the table.
+
 The above parameters map to the env variables defined in [bitnami/clickhouse](https://github.com/bitnami/containers/tree/main/bitnami/clickhouse). For more information please refer to the [bitnami/clickhouse](https://github.com/bitnami/containers/tree/main/bitnami/clickhouse) image documentation.
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
@@ -388,7 +391,7 @@ externalZookeeper.port=3306
 
 ### TLS secrets
 
-The chart also facilitates the creation of TLS secrets for use with the Ingress controller, with different options for certificate management. [Learn more about TLS secrets](https://docs.bitnami.com/kubernetes/apps/clickhouse/administration/enable-tls-ingress/)).
+The chart also facilitates the creation of TLS secrets for use with the Ingress controller, with different options for certificate management. [Learn more about TLS secrets](https://docs.bitnami.com/kubernetes/infrastructure/clickhouse/administration/enable-tls-ingress/)).
 
 ## Persistence
 
